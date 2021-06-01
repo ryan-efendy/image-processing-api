@@ -1,41 +1,30 @@
 {
-  "name": "node-typescript-boilerplate",
-  "version": "0.0.0",
-  "description": "Minimalistic boilerplate to quick-start Node.js development in TypeScript.",
-  "engines": {
-    "node": ">= 14.16 <15"
+  "name": "nd-0067-c1-building-a-server-project-starter",
+  "version": "1.0.0",
+  "description": "This project aims to give you a real-world scenario in which you would read and write to your disk via a Node.js extierss server rather than a database. The project you create serves two purposes: to prepare you for setting up scalable code and architecture for real-world projects and tie together some of the most popular middleware and utilities found in Node.js projects. This project barely touches the surface of what is possible but will prove your ability to use what you’ve learned in real-world scenarios.",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon src/index.ts",
+    "build": "npx tsc",
+    "lint": "eslint . --ext .ts,.tsx"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "morgan": "^1.10.0",
+    "sharp": "^0.28.3"
   },
   "devDependencies": {
-    "@types/jest": "~26.0.23",
-    "@types/node": "~14.14.45",
-    "@typescript-eslint/eslint-plugin": "~4.25.0",
-    "@typescript-eslint/parser": "~4.25.0",
+    "@types/express": "^4.17.12",
+    "@types/morgan": "^1.9.2",
+    "@types/node": "^15.6.1",
+    "@types/sharp": "^0.28.3",
+    "@typescript-eslint/eslint-plugin": "^4.26.0",
+    "@typescript-eslint/parser": "^4.26.0",
     "eslint": "~7.27.0",
     "eslint-config-prettier": "~8.3.0",
-    "eslint-plugin-jest": "~24.3.6",
-    "jest": "~27.0.3",
+    "nodemon": "^2.0.7",
     "prettier": "~2.3.0",
-    "rimraf": "~3.0.2",
-    "ts-jest": "~27.0.2",
-    "tsutils": "~3.21.0",
+    "ts-node": "^10.0.0",
     "typescript": "~4.3.2"
-  },
-  "scripts": {
-    "start": "node build/src/main.js",
-    "clean": "rimraf coverage build tmp",
-    "prebuild": "npm run lint",
-    "build": "tsc -p tsconfig.release.json",
-    "build:watch": "tsc -w -p tsconfig.release.json",
-    "lint": "eslint . --ext .ts,.tsx",
-    "test": "jest --coverage",
-    "test:watch": "jest --watch"
-  },
-  "author": "Jakub Synowiec <github@jakubsynowiec.info>",
-  "license": "Apache-2.0",
-  "dependencies": {
-    "tslib": "~2.2.0"
-  },
-  "volta": {
-    "node": "14.16.1"
   }
 }

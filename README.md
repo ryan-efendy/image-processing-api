@@ -1,104 +1,61 @@
-# node-typescript-boilerplate
+# Image Processing API
 
-[![Sponsor][sponsor-badge]][sponsor]
-[![TypeScript version][ts-badge]][typescript-4-3]
-[![Node.js version][nodejs-badge]][nodejs]
-[![APLv2][license-badge]][license]
-[![Build Status - GitHub Actions][gha-badge]][gha-ci]
+This project aims to give you a real-world scenario in which you would read and write to your disk via a Node.js express server rather than a database. The project you create serves two purposes: to prepare you for setting up scalable code and architecture for real-world projects and tie together some of the most popular middleware and utilities found in Node.js projects. This project barely touches the surface of what is possible but will prove your ability to use what you’ve learned in real-world scenarios.
 
-👩🏻‍💻 Developer Ready: A comprehensive template. Works out of the box for most [Node.js][nodejs] projects.
-
-🏃🏽 Instant Value: All basic tools included and configured:
-
-- [TypeScript][typescript] [4.3][typescript-4-3]
-- [ESLint][eslint] with some initial rules recommendation
-- [Jest][jest] for fast unit testing and code coverage
-- Type definitions for Node.js and Jest
-- [Prettier][prettier] to enforce consistent code style
-- NPM [scripts](#available-scripts) for common operations
-- Simple example of TypeScript code and unit test
-- .editorconfig for consistent file format
-- Reproducible environments thanks to [Volta][volta]
-- Example configuration for [GitHub Actions][gh-actions]
-
-🤲 Free as in speech: available under the APLv2 license.
+For this project, refactor and test as much as possible while you are building. Since you are using TypeScript and an unfamiliar library, it is sometimes easier to write and build in plain JS to see what your functions return; remember your submission needs to be in TypeScript. As your skills improve, typing in TypeScript will feel more intuitive. Make sure to remove any debugging code from your final submission.
 
 ## Getting Started
 
-This project is intended to be used with the latest Active LTS release of [Node.js][nodejs].
+Usually, you would get some starter code to build from, but with this project, it’s your job to prove you can do it from scratch, so all that is being provided for you is a folder of license-free stock images you are welcome to use. If you would like to use your own images for this project, you are welcome to do so, but whoever reviews your project will see your images, and when you display your project online, viewers will also see them.
 
-### Use as a repository template
+You can use your own images or use the ones provided in this repo: [images](images)
 
-To start, just click the **[Use template][repo-template-action]** link (or the green button). Start adding your code in the `src` and unit tests in the `__tests__` directories.
+## Instructions
 
-### Clone repository
+Feel free to attempt to create this project based on the overview and rubric specifications. If you get stuck or prefer structured guidance -- here is a walkthrough to get you up and running!
 
-To clone the repository, use the following commands:
+1. **Initialize your project.**
+   Add the dependencies required for this project, including Express, TypeScript, Jasmine, Eslint, and Prettier. Complete your package.json file.
+   - Where should your dependencies be placed?
+   - What scripts should you create to take advantage of the dependencies you've added?
+   - Are there other dependencies you would like to add or know you will need to improve your workflow?
+2. **Set up your project structure.**
+   Create folders and files for what you anticipate you will need for the project.
+   - How do you plan to keep your source code and build code separately?
+   - Where will you keep your tests?
+   - How do you plan to name your routes? Utilities?
+3. **Configure your middleware and dependencies.**
+   You have quite a few dependencies that all need to work together. Sometimes it's easiest to write some simple js functions to test that all of your dependencies work together before you begin adding any functionality.
 
-```sh
-git clone https://github.com/jsynowiec/node-typescript-boilerplate
-cd node-typescript-boilerplate
-npm install
-```
+   - Does your TypeScript compile?
+   - Do your Eslint and Prettier scripts work?
+   - Are you able to write and pass
 
-### Download latest release
+4. **Set up your server and create an API endpoint.** Even though this application is fairly straightforward, you still want to set it up in a scalable way. How can you set up your server and route so that your project remains scalable? Only one endpoint is required. It's best to create this and test that it is working before you move on.
 
-Download and unzip the current **main** branch or one of the tags:
+5. **Install [Sharp](https://www.npmjs.com/package/sharp) and configure endpoint.**
+   Create a separate module for your processing functionality and import it into your route. You are only required to add resizing, but you may add additional processing if you choose to extend your application. You are only required to work with jpg files, so keep that in mind if you choose to use your own images and they are other formats.
+   - Pay close attention to if you need to use asynchronous code or not. If you do, make sure you stay consistent throughout your application.
+   - There is limited information on using Sharp with TypeScript, but don't let that be a blocker. Think about what type the Sharp constructor would return. Have a look at the [Sharp Constructor documentation](https://sharp.pixelplumbing.com/api-constructor) and the examples it provides.
+6. **Write your tests.**
+   If you haven't already been writing unit tests, now would be the time to start. Think about what you should test? At a minimum, you should have at least one test for your endpoint and at least one test for your image processing, but there are many different tests you could create.
+7. **Add caching.**
+   Add caching to your application so that repeated requests to your endpoint use pre-stored images rather than regenerating a new image each time.
+8. **Test, Debug, and Refactor.**
+   Think of edge-cases for your project and how someone may access your project. Should they get different error messages based on what's wrong? Make certain that your user isn't left in the dark when something goes wrong.
+   - Do all of your tests still pass?
+   - Does stopping and restarting your server cause any issues?
+   - Does your user get feedback when something goes wrong?
+   - Is your code easy to follow? Comments?
+   - Is your API production-ready?
+9. **Build, Document, and Submit.**
+   If everything else has gone well, you should be able to compile your typescript and start up your production server to test that everything still works as expected. Make sure you've provided all necessary information in your readme file, so your reviewer knows how to test your API. If everything works and your documentation is complete, you're ready to submit!
+   **_Congratulations!_**
 
-```sh
-wget https://github.com/jsynowiec/node-typescript-boilerplate/archive/main.zip -O node-typescript-boilerplate.zip
-unzip node-typescript-boilerplate.zip && rm node-typescript-boilerplate.zip
-```
+## Version Control
 
-## Available Scripts
-
-- `clean` - remove coverage data, Jest cache and transpiled files,
-- `prebuild` - lint source files and tests before building,
-- `build` - transpile TypeScript to ES6,
-- `build:watch` - interactive watch mode to automatically transpile source files,
-- `lint` - lint source files and tests,
-- `test` - run tests,
-- `test:watch` - interactive watch mode to automatically re-run tests
-
-## Additional Informations
-
-### Why include Volta
-
-[Volta][volta]’s toolchain always keeps track of where you are, it makes sure the tools you use always respect the settings of the project you’re working on. This means you don’t have to worry about changing the state of your installed software when switching between projects. For example, it's [used by engineers at LinkedIn][volta-tomdale] to standardize tools and have reproducible development environments.
-
-I recommend to [install][volta-getting-started] Volta and use it to manage your project's toolchain.
-
-### Writing tests in JavaScript
-
-Writing unit tests in TypeScript can sometimes be troublesome and confusing. Especially when mocking dependencies and using spies.
-
-This is **optional**, but if you want to learn how to write JavaScript tests for TypeScript modules, read the [corresponding wiki page][wiki-js-tests].
-
-## Backers & Sponsors
-
-Support this project by becoming a [sponsor][sponsor].
+Although not a requirement, we recommend using Git from the very beginning if you choose to build on your local environment or use the provided workspace. Make sure to commit often and to use well-formatted commit messages.
 
 ## License
 
-Licensed under the APLv2. See the [LICENSE](https://github.com/jsynowiec/node-typescript-boilerplate/blob/main/LICENSE) file for details.
-
-[ts-badge]: https://img.shields.io/badge/TypeScript-4.3-blue.svg
-[nodejs-badge]: https://img.shields.io/badge/Node.js->=%2014.16-blue.svg
-[nodejs]: https://nodejs.org/dist/latest-v14.x/docs/api/
-[gha-badge]: https://github.com/jsynowiec/node-typescript-boilerplate/actions/workflows/nodejs.yml/badge.svg
-[gha-ci]: https://github.com/jsynowiec/node-typescript-boilerplate/actions/workflows/nodejs.yml
-[typescript]: https://www.typescriptlang.org/
-[typescript-4-3]: https://www.typescriptlang.org/docs/handbook/release-notes/typescript-4-3.html
-[license-badge]: https://img.shields.io/badge/license-APLv2-blue.svg
-[license]: https://github.com/jsynowiec/node-typescript-boilerplate/blob/main/LICENSE
-[sponsor-badge]: https://img.shields.io/badge/♥-Sponsor-fc0fb5.svg
-[sponsor]: https://github.com/sponsors/jsynowiec
-[jest]: https://facebook.github.io/jest/
-[eslint]: https://github.com/eslint/eslint
-[wiki-js-tests]: https://github.com/jsynowiec/node-typescript-boilerplate/wiki/Unit-tests-in-plain-JavaScript
-[prettier]: https://prettier.io
-[volta]: https://volta.sh
-[volta-getting-started]: https://docs.volta.sh/guide/getting-started
-[volta-tomdale]: https://twitter.com/tomdale/status/1162017336699838467?s=20
-[gh-actions]: https://github.com/features/actions
-[repo-template-action]: https://github.com/jsynowiec/node-typescript-boilerplate/generate
+[License](LICENSE.txt)
