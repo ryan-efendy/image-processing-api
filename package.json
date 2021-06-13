@@ -7,10 +7,18 @@
     "start": "ts-node-dev --respawn --transpile-only ./src/index.ts",
     "build": "npx tsc && node ./build/index.js",
     "lint": "eslint . --ext .ts,.tsx",
-    "test": "jest"
+    "format": "eslint . --ext .ts,.tsx --fix",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "prettier:base": "prettier --parser typescript --single-quote",
+    "prettier:check": "npm run prettier:base -- --list-different \"src/**/*.{ts,tsx}\"",
+    "prettier:write": "npm run prettier:base -- --write \"src/**/*.{ts,tsx}\"",
+    "precommit": "npm run prettier:write"
   },
   "dependencies": {
     "express": "^4.17.1",
+    "husky": "^6.0.0",
     "morgan": "^1.10.0",
     "sharp": "^0.28.3"
   },

@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import images from './api/images';
+import images from './images.route';
 const routes = Router();
 
 routes.use('/images', images);
