@@ -21,10 +21,10 @@ type ReqQuery = {
  * @param res
  * @returns
  */
-export const getImage = async (req: Request<any, any, any, ReqQuery>, res: Response): Promise<void> => {
+export const getImage = async (req: Request, res: Response): Promise<void> => {
   try {
     if (req.query) {
-      const { filename, width, height, format, blur, grayscale } = req.query;
+      const { filename, width, height, format, blur, grayscale } = req.query as ReqQuery;
       res.sendFile(path.resolve(await transformImage(filename, width, height, format, blur, grayscale)));
     }
   } catch (err) {
